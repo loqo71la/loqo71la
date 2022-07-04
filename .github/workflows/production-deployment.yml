@@ -1,0 +1,42 @@
+name: Production Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.3.0
+        with:
+          node-version: '16.x'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate .env file
+        env:
+          GATSBY_GITHUB_TOKEN: ${{ secrets.GATSBY_GITHUB_TOKEN }}
+          API_CONTACT_URL: ${{ secrets.API_CONTACT_URL }}
+        run: |
+          touch .env.production
+          echo GITHUB_TOKEN="$GATSBY_GITHUB_TOKEN" >> .env.production
+          echo API_CONTACT_URL="$API_CONTACT_URL" >> .env.production
+        shell: bash
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_GREAT_PIZZA_LOQO71LA }}'
+          channelId: live
+          projectId: loqo71la
