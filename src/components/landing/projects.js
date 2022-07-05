@@ -41,9 +41,11 @@ function Projects() {
   return (
     <section id="projects" className="py-28 bg-gradient-to-tr from-indigo-100 via-blue-50 to-white">
       <div className="container mx-auto px-6 md:px-10 text-center">
-        <Fade direction="left" cascade>
+        <Fade direction="up" cascade>
           <h2 className="text-3xl md:text-5xl">Projects</h2>
           <p className="text-gray-700 mt-6">In these projects you will be able to see many technologies that I have used until now.</p>
+        </Fade>
+        <Fade delay={250} duration={1500}>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {nodes.map((node, index) => (
               <div

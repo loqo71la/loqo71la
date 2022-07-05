@@ -28,6 +28,8 @@ function Contact() {
         <p className="md:text-lg mt-6 opacity-80">
           If you have an exciting project where you need some help, feel free to get in touch.
         </p>
+      </Fade>
+      <Fade delay={250} duration={1500}>
         <form className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={handleSubmit}>
           <input
             required
