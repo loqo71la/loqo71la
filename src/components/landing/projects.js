@@ -51,9 +51,9 @@ function Projects() {
               <div
                 key={index}
                 href={node.homepageUrl || node.url}
-                className="flex flex-col pt-3 pb-1 px-4 h-36 bg-white rounded-lg shadow-md transition hover:-translate-y-1 hover:bg-gray-100"
+                className="flex flex-col pt-3 pb-1 px-4 gap-3 bg-white rounded-lg shadow-md transition hover:-translate-y-1 hover:bg-gray-100"
               >
-                <h5 className="mb-4 text-xl font-bold tracking-tight text-gray-900 dark:text-white inline-flex items-center justify-center gap-2">
+                <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white inline-flex items-center justify-center gap-2">
                   {node.name}
                   {node.url &&
                     <a href={node.url} className="p-1 hover:p-1 hover:fill-white hover:bg-blue-600 hover:rounded-full">
@@ -70,7 +70,7 @@ function Projects() {
                     </a>
                   }
                 </h5>
-                <p className="text-sm mb-auto text-gray-500 dark:text-gray-400">
+                <p className="text-sm flex-1 text-gray-500 dark:text-gray-400">
                   {node.description}
                 </p>
                 <p className="text-xs font-medium dark:text-gray-400 inline-flex items-center">
