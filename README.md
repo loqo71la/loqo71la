@@ -27,4 +27,7 @@ I'm a knowledge enthusiast, I really enjoy finding more optimal solutions to pro
   <img alt="git" src="https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white" />
 </p>
 
-<p align="center"> <img src="https://github-readme-stats.vercel.app/api?username=loqo71la&show_icons=true&count_private=true" alt="loqo71la" />
+<p>
+<img alt="loqo71la" src="https://github-readme-stats.vercel.app/api?username=loqo71la&show_icons=true&count_private=true" />
+<img alt="loqo71la" src="https://github-readme-stats.vercel.app/api/top-langs/?username=loqo71la&layout=compact" />
+</p>
