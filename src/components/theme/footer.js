@@ -9,7 +9,9 @@ function Footer() {
         {socialLinks.map((social, index) => (
           <a
             key={index}
+            target="_blank"
             href={social.link}
+            rel="noopener noreferrer"
             aria-label={`follow me on ${social.name}`}
           >
             <svg
@@ -29,6 +31,8 @@ function Footer() {
       <p className="text-sm mt-4 text-gray-400">
         © 2022
         <a
+          target="_blank"
+          rel="noopener noreferrer"
           href="https://www.loqo71la.dev"
           className="ml-1 font-semibold hover:text-blue-600"
         >

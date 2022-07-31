@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Fade } from 'react-awesome-reveal';
 
-import saveContact from '../../services/contact.service';
 import config from '../../data/config';
+import LoadingIcon from '../common/icons/loading-icon';
+import saveContact from '../../services/contact.service';
 
 function Contact() {
   const newContact = () => ({ name: '', email: '', message: '' });
@@ -56,12 +57,7 @@ function Contact() {
           />
           <button
             className="md:col-span-2 inline-flex items-center px-6 py-2.5 mx-auto w-fit rounded-full text-white bg-blue-600 hover:bg-blue-800 transition">
-            {isLoading &&
-              <svg className="animate-spin mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"></circle>
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-            }
+            {isLoading && <LoadingIcon />}
             Send Message
           </button>
         </form>
