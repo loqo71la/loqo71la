@@ -12,19 +12,8 @@ function Footer() {
             target="_blank"
             href={social.link}
             rel="noopener noreferrer"
-            aria-label={`follow me on ${social.name}`}
           >
-            <svg
-              role="img"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              className="fill-gray-400 hover:fill-blue-600"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>{social.name}</title>
-              <path d={social.path} />
-            </svg>
+            <social.svg className="w-6 h-6 fill-gray-400 hover:fill-blue-600 dark:hover:fill-indigo-500"/>
           </a>
         ))}
       </div>
@@ -34,7 +23,7 @@ function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.loqo71la.dev"
-          className="ml-1 font-semibold hover:text-blue-600"
+          className="ml-1 font-semibold hover:text-blue-600 dark:hover:text-indigo-500"
         >
           loqo71la
         </a>

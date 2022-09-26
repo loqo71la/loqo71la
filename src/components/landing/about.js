@@ -13,20 +13,21 @@ function About() {
             <h1 className="text-xl md:text-2xl">
               Hey There 👋!<span className="text-5xl block mt-3">I'm Dan</span>
             </h1>
-            <h2 className="text-gray-700 text-xl mt-6">
-              Full-stack <span className="text-gray-800 font-semibold">Developer</span>
+            <h2 className="opacity-80 text-xl font-light mt-6">
+              Full-stack
+              <span className="opacity-90 font-medium">Developer</span>
             </h2>
           </Fade>
           <Fade direction="up">
-            <p className="mt-10 opacity-75">
+            <p className="mt-10 opacity-80">
               I'm a knowledge enthusiast, I really enjoy finding more optimal solutions to problems through software development.
             </p>
-            <p className="mt-2 opacity-75">
+            <p className="mt-2 opacity-80">
               When I’m not behind a computer, I love to travel and learn about new cultures and customs.
             </p>
             <div className="mt-8">
               <AnchorLink
-                className="px-6 py-2.5 text-white text-center rounded-full bg-blue-600 hover:bg-blue-800"
+                className="px-6 py-2.5 text-white text-center rounded-full bg-blue-600 hover:bg-blue-800 dark:bg-indigo-500 dark:hover:bg-indigo-700"
                 href="#contact"
               >
                 Contact me

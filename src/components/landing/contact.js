@@ -38,7 +38,7 @@ function Contact() {
             placeholder="Your Name*"
             value={contact.name}
             onChange={e => setContact({ ...contact, name: e.target.value })}
-            className="p-3 text-sm bg-gray-100 border-none rounded-none text-gray-900 focus:outline-blue-500"
+            className="p-3 text-sm bg-gray-100 dark:bg-gray-600 border-none text-gray-900 dark:text-gray-200 focus:outline focus:outline-blue-500 dark:focus:outline-indigo-400"
           />
           <input
             required
@@ -46,27 +46,30 @@ function Contact() {
             placeholder="Your Email*"
             value={contact.email}
             onChange={e => setContact({ ...contact, email: e.target.value })}
-            className="p-3 text-sm bg-gray-100 border-none rounded-none text-gray-900 focus:outline-blue-500"
+            className="p-3 text-sm bg-gray-100 dark:bg-gray-600 border-none text-gray-900 dark:text-gray-200 focus:outline focus:outline-blue-500 dark:focus:outline-indigo-400"
           />
           <textarea
             rows="5"
             placeholder="How can I help you?"
             value={contact.message}
             onChange={e => setContact({ ...contact, message: e.target.value })}
-            className="md:col-span-2 p-3 text-sm bg-gray-100 border-none rounded-none text-gray-900 focus:outline-blue-500"
+            className="md:col-span-2 p-3 text-sm bg-gray-100 dark:bg-gray-600 border-none text-gray-900 dark:text-gray-200 focus:outline focus:outline-blue-500 dark:focus:outline-indigo-400"
           />
           <button
-            className="md:col-span-2 inline-flex items-center px-6 py-2.5 mx-auto w-fit rounded-full text-white bg-blue-600 hover:bg-blue-800 transition">
+            className="md:col-span-2 inline-flex items-center px-6 py-2.5 mx-auto w-fit rounded-full text-white bg-blue-600 hover:bg-blue-800 dark:bg-indigo-500 dark:hover:bg-indigo-700 transition">
             {isLoading && <LoadingIcon />}
             Send Message
           </button>
         </form>
       </Fade>
       <Fade>
-        <p className="mt-24 mb-6">You can also just send me an <a href="mailto:hello@loqo71la.dev" className="text-blue-600 hover:font-semibold">email</a></p>
-        <p className="mx-auto transition hover:-translate-y-1 w-fit">
-          <a href="mailto:hello@loqo71la.dev" className="text-blue-600 text-xl hover:font-semibold">hello@loqo71la.dev</a>
-        </p>
+        <p className="mt-24 mb-6">You can also just send me an email</p>
+        <a
+          href="mailto:hello@loqo71la.dev"
+          className="text-xl text-blue-600 dark:text-indigo-400 hover:font-medium"
+        >
+          hello@loqo71la.dev
+        </a>
       </Fade>
     </section>
   );
