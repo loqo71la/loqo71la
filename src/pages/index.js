@@ -7,7 +7,7 @@ import Projects from '../components/landing/projects';
 
 function IndexPage() {
   return (
-    <div className="h-auto scroll-auto">
+    <div className="h-auto scroll-auto dark:bg-gray-800 dark:text-white">
       <Layout>
         <About />
         <Projects />

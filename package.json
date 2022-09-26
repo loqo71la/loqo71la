@@ -3,6 +3,7 @@
   "description": "loqo71la Personal Portfolio",
   "version": "0.1.0",
   "dependencies": {
+    "@loqo71la/react-web-icons": "^0.0.8",
     "dotenv": "^16.0.1",
     "gatsby": "^4.17.2",
     "gatsby-plugin-gatsby-cloud": "^4.17.0",
