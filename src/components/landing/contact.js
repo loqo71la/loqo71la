@@ -1,8 +1,8 @@
+import { Spinner } from '@loqo71la/react-web-icons';
 import React, { useState } from 'react';
 import { Fade } from 'react-awesome-reveal';
 
 import config from '../../data/config';
-import LoadingIcon from '../common/icons/loading-icon';
 import saveContact from '../../services/contact.service';
 
 function Contact() {
@@ -56,8 +56,9 @@ function Contact() {
             className="md:col-span-2 p-3 text-sm bg-gray-100 dark:bg-gray-600 border-none text-gray-900 dark:text-gray-200 focus:outline focus:outline-blue-500 dark:focus:outline-indigo-400"
           />
           <button
-            className="md:col-span-2 inline-flex items-center px-6 py-2.5 mx-auto w-fit rounded-full text-white bg-blue-600 hover:bg-blue-800 dark:bg-indigo-500 dark:hover:bg-indigo-700 transition">
-            {isLoading && <LoadingIcon />}
+            disabled={isLoading}
+            className={`md:col-span-2 inline-flex items-center gap-2 px-6 py-2.5 mx-auto w-fit rounded-full text-white ${isLoading ? 'bg-blue-800 dark:bg-indigo-700' : 'bg-blue-600 dark:bg-indigo-500 hover:bg-blue-800 dark:hover:bg-indigo-700'} transition`}>
+            {isLoading && <Spinner className="animate-spin h-4 w-4 fill-white" />}
             Send Message
           </button>
         </form>
