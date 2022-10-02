@@ -1,16 +1,17 @@
 import React from 'react';
 import { Fade } from 'react-awesome-reveal';
-import { GitHub, InternetExplorer, Tag } from '@loqo71la/react-web-icons';
+import { GitHub, Tag } from '@loqo71la/react-web-icons';
 import { useStaticQuery, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
+const imgStyle = 'rounded-t-xl group-hover:opacity-40';
 const images = {
-  "loqo71la": <StaticImage alt="loqo71la" src="../../images/demo/loqo71la.png" />,
-  "enforce-gradle-plugin": <StaticImage alt="enforce-gradle-plugin" src="../../images/demo/enforce-gradle-plugin.png" />,
-  "great-pizza": <StaticImage alt="great-pizza" src="../../images/demo/great-pizza.png" />,
-  "school-management": <StaticImage alt="school-management" src="../../images/demo/school-management.png" />,
-  "react-web-icons": <StaticImage alt="react-web-icons" src="../../images/demo/react-web-icons.png" />,
-  "giphy": <StaticImage alt="giphy" src="../../images/demo/giphy.png" />
+  "loqo71la": <StaticImage alt="loqo71la" className={imgStyle} src="../../images/demo/loqo71la.png" />,
+  "enforce-gradle-plugin": <StaticImage alt="enforce-gradle-plugin" className={imgStyle} src="../../images/demo/enforce-gradle-plugin.png" />,
+  "great-pizza": <StaticImage alt="great-pizza" className={imgStyle} src="../../images/demo/great-pizza.png" />,
+  "school-management": <StaticImage alt="school-management" className={imgStyle} src="../../images/demo/school-management.png" />,
+  "react-web-icons": <StaticImage alt="react-web-icons" className={imgStyle} src="../../images/demo/react-web-icons.png" />,
+  "giphy": <StaticImage alt="giphy" className={imgStyle} src="../../images/demo/giphy.png" />
 }
 
 function Projects() {
@@ -61,41 +62,39 @@ function Projects() {
               <div
                 key={index}
                 href={node.homepageUrl || node.url}
-                className="flex flex-col pt-3 pb-1 px-4 gap-3 bg-white dark:bg-gray-700 rounded-lg shadow-md transition hover:-translate-y-1 hover:bg-gray-200 dark:hover:bg-gray-600"
+                className="group flex flex-col bg-white dark:bg-gray-700 rounded-xl shadow-md hover:bg-gray-300 dark:hover:bg-gray-900"
               >
-                <h5 className="text-xl font-medium tracking-tight text-gray-900 dark:text-white inline-flex items-center justify-center gap-2">
-                  {node.name}
-                  {node.url &&
-                    <a
-                      target="_blank"
-                      href={node.url}
-                      rel="noopener noreferrer"
-                    >
-                      <GitHub className="w-5 h-5 dark:fill-white hover:fill-blue-600 dark:hover:fill-indigo-400" />
-                    </a>
-                  }
-                  {node.homepageUrl &&
-                    <a
-                      target="_blank"
-                      href={node.homepageUrl}
-                      rel="noopener noreferrer"
-                    >
-                      <InternetExplorer
-                        title="Website"
-                        className="w-5 h-5 fill-blue-500 dark:fill-indigo-400 hover:fill-blue-700 dark:hover:fill-indigo-500"
-                      />
-                    </a>
-                  }
-                </h5>
-                <p>{node.images}</p>
-                {node.homepageUrl && images[node.name]}
-                <p className="text-sm flex-1 text-gray-600 dark:text-gray-300">
-                  {node.description}
-                </p>
-                <p className="inline-flex items-center gap-2 text-xs dark:text-gray-300">
-                  <Tag className="w-5 h-5" />
-                  {node.languages.nodes.map(lang => lang.name).join(', ')}
-                </p>
+                {node.homepageUrl &&
+                  <a
+                    target="_blank"
+                    title="Website"
+                    href={node.homepageUrl}
+                    rel="noopener noreferrer"
+                  >
+                    {images[node.name]}
+                  </a>
+                }
+                <a
+                  target="_blank"
+                  href={node.url}
+                  title="GitHub repository"
+                  rel="noopener noreferrer"
+                  className="flex-1 flex flex-col pt-3 pb-1"
+                >
+                  <section className="flex-1 flex text-left">
+                    <div className="px-4">
+                      <GitHub className="w-8 h-8 dark:fill-white hover:fill-blue-600 dark:hover:fill-indigo-400" />
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <h5 className="text-sm font-medium tracking-tight text-gray-900 dark:text-white">{node.name}</h5>
+                      <p className="text-xs flex-1 text-gray-600 dark:text-gray-300">{node.description}</p>
+                      <p className="inline-flex gap-1 text-xs dark:text-gray-300">
+                        <Tag className="w-4 h-4" />
+                        {node.languages.nodes.map(lang => lang.name).join(', ')}
+                      </p>
+                    </div>
+                  </section>
+                </a>
               </div>
             ))}
           </div>
