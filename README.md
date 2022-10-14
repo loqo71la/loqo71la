@@ -3,7 +3,7 @@
 
 Welcome to my GitHub profile!
 
-I'm a knowledge enthusiast, I really enjoy finding more optimal solutions to problems through software development.
+I'm a programming enthusiast and I really enjoy finding solutions to complex problems through software development.
 
 ## Things I code with
 <p>
@@ -18,13 +18,10 @@ I'm a knowledge enthusiast, I really enjoy finding more optimal solutions to pro
   <img alt="github actions" src="https://img.shields.io/badge/-Github_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white" />
   <img alt="Jenkins" src="https://img.shields.io/badge/jenkins-%232C5263.svg?style=flat-square&logo=jenkins&logoColor=white" />
   <img alt="AWS" src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=flat-square&logo=amazon-aws&logoColor=white" />
-  <img alt="Heroku" src="https://img.shields.io/badge/-Heroku-430098?style=flat-square&logo=heroku&logoColor=white" />
   <img alt="SqlServer" src="https://img.shields.io/badge/SQL%20Sever-CC2927?style=flat-square&logo=microsoft%20sql%20server&logoColor=white" />
   <img alt="Postgress" src="https://img.shields.io/badge/Postgres-%23316192.svg?style=flat-square&logo=postgresql&logoColor=white" />
   <img alt="MongoDB" src="https://img.shields.io/badge/-MongoDB-13aa52?style=flat-square&logo=mongodb&logoColor=white" />
   <img alt="DynamoDB" src="https://img.shields.io/badge/DynamoDB-4053D6?style=flat-square&logo=Amazon%20DynamoDB&logoColor=whit" />
-  <img alt="ReactiveX" src="https://img.shields.io/badge/-RxJs-B7178C?style=flat-square&logo=reactivex&logoColor=white" />
-  <img alt="git" src="https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white" />
 </p>
 
 <p>

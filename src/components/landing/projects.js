@@ -1,10 +1,11 @@
 import React from 'react';
 import { Fade } from 'react-awesome-reveal';
-import { GitHub, Tag } from '@loqo71la/react-web-icons';
+import { GitHub, InternetExplorer, Tag } from '@loqo71la/react-web-icons';
 import { useStaticQuery, graphql } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
+import { languages } from '../../data/config';
 
-const imgStyle = 'rounded-t-xl group-hover:opacity-40';
+const imgStyle = 'rounded-t-xl group-hover:opacity-5';
 const images = {
   "loqo71la": <StaticImage alt="loqo71la" className={imgStyle} src="../../images/demo/loqo71la.png" />,
   "enforce-gradle-plugin": <StaticImage alt="enforce-gradle-plugin" className={imgStyle} src="../../images/demo/enforce-gradle-plugin.png" />,
@@ -15,6 +16,11 @@ const images = {
 }
 
 function Projects() {
+  const toCapitalCase = name => name.length ? `${name[0].toUpperCase()}${name.substring(1)}` : '';
+  const loadLanguage = node => {
+    const name = node.topic.name;
+    return languages[name] || toCapitalCase(name);
+  };
   const {
     github: {
       viewer: {
@@ -27,20 +33,22 @@ function Projects() {
         github {
           viewer {
             repositories(
-              first: 10
-              orderBy: { field: STARGAZERS, direction: DESC }
+              first: 12
+              orderBy: {field: STARGAZERS, direction: DESC}
               ownerAffiliations: OWNER
             ) {
               nodes {
                 name
                 url
                 description
-                languages(first: 5) {
+                homepageUrl
+                repositoryTopics(first: 10) {
                   nodes {
-                    name
+                    topic {
+                      name
+                    }
                   }
                 }
-                homepageUrl
               }
             }
           }
@@ -50,11 +58,11 @@ function Projects() {
   );
 
   return (
-    <section id="projects" className="py-28 bg-gradient-to-tr from-indigo-100 to-white dark:from-indigo-500 dark:to-gray-800">
+    <section id="projects" className="py-24 bg-gradient-to-b from-indigo-100 to-white dark:from-indigo-500 dark:to-gray-800">
       <div className="container mx-auto px-6 md:px-10 text-center">
         <Fade direction="up" cascade>
           <h2 className="text-3xl md:text-5xl">Projects</h2>
-          <p className="opacity-70 mt-6">In these projects you will be able to see many technologies that I have used until now.</p>
+          <p className="opacity-70 mt-6">In these personal projects you will be able to see many technologies that I have used so far.</p>
         </Fade>
         <Fade delay={250} duration={1500}>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -62,39 +70,43 @@ function Projects() {
               <div
                 key={index}
                 href={node.homepageUrl || node.url}
-                className="group flex flex-col bg-white dark:bg-gray-700 rounded-xl shadow-md hover:bg-gray-300 dark:hover:bg-gray-900"
+                className="relative group flex flex-col bg-white dark:bg-gray-700 rounded-xl shadow-md"
               >
-                {node.homepageUrl &&
+                <section className="hidden group-hover:z-10 group-hover:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
+                  {node.homepageUrl &&
+                    <a
+                      target="_blank"
+                      title="Website"
+                      href={node.homepageUrl}
+                      className="flex justify-center items-center gap-2 py-2 px-6 mb-2 rounded-full border border-blue-600 text-blue-600 fill-blue-600 hover:fill-white hover:bg-blue-600 hover:text-white dark:fill-indigo-500 dark:text-indigo-500 dark:border-indigo-500 dark:bg-gray-800 dark:hover:text-white dark:hover:bg-indigo-500 dark:hover:fill-white"
+                      rel="noopener noreferrer"
+                    >
+                      <InternetExplorer className="w-6 h-6" />
+                      <span className="w-28">Visit Website</span>
+                    </a>
+                  }
                   <a
                     target="_blank"
-                    title="Website"
-                    href={node.homepageUrl}
+                    title="Github"
+                    href={node.url}
+                    className="flex justify-center items-center gap-2 py-2 px-6 rounded-full border border-blue-600 text-blue-600 fill-blue-600 hover:fill-white hover:bg-blue-600 hover:text-white dark:fill-indigo-500 dark:text-indigo-500 dark:border-indigo-500 dark:bg-gray-800 dark:hover:text-white dark:hover:bg-indigo-500 dark:hover:fill-white"
                     rel="noopener noreferrer"
                   >
-                    {images[node.name]}
+                    <GitHub className="w-6 h-6" />
+                    Visit GitHub
                   </a>
-                }
-                <a
-                  target="_blank"
-                  href={node.url}
-                  title="GitHub repository"
-                  rel="noopener noreferrer"
-                  className="flex-1 flex flex-col pt-3 pb-1"
-                >
-                  <section className="flex-1 flex text-left">
-                    <div className="px-4">
-                      <GitHub className="w-8 h-8 dark:fill-white hover:fill-blue-600 dark:hover:fill-indigo-400" />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <h5 className="text-sm font-medium tracking-tight text-gray-900 dark:text-white">{node.name}</h5>
-                      <p className="text-xs flex-1 text-gray-600 dark:text-gray-300">{node.description}</p>
-                      <p className="inline-flex gap-1 text-xs dark:text-gray-300">
-                        <Tag className="w-4 h-4" />
-                        {node.languages.nodes.map(lang => lang.name).join(', ')}
-                      </p>
-                    </div>
-                  </section>
-                </a>
+                </section>
+                {node.homepageUrl && images[node.name]}
+                <section className="flex-1 flex group-hover:opacity-5">
+                  <div className="flex-1 flex flex-col gap-1 px-2">
+                    <h5 className="text-sm font-medium tracking-tight text-gray-900 dark:text-white">{node.name}</h5>
+                    <p className="text-xs flex-1 text-gray-600 dark:text-gray-300">{node.description}</p>
+                    <p className="inline-flex gap-1 tracking-tight text-left text-xs dark:text-gray-300">
+                      <Tag className="w-4 h-4" />
+                      {node.repositoryTopics?.nodes.map(loadLanguage).join(', ')}
+                    </p>
+                  </div>
+                </section>
               </div>
             ))}
           </div>
