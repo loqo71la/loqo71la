@@ -35,6 +35,8 @@ function Contact() {
           <input
             required
             type="text"
+            title="Please enter at least 3 characters"
+            pattern=".{3}"
             placeholder="Your Name*"
             value={contact.name}
             onChange={e => setContact({ ...contact, name: e.target.value })}

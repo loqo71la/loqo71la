@@ -21,7 +21,7 @@ function Navbar() {
           <div className="hidden md:inline-flex items-center gap-2">
             {menus.map((menu, index) => (
               <AnchorLink
-                className="p-2 text-sm opacity-80 hover:opacity-100 hover:font-medium"
+                className="p-2 text-sm opacity-80 border-b border-transparent hover:opacity-100 hover:font-medium hover:border-gray-800/90 dark:hover:border-white/90"
                 href={`#${menu.toLocaleLowerCase()}`}
                 key={index}
               >
