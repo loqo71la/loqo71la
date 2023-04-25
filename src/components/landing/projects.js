@@ -78,7 +78,7 @@ function Projects() {
         </Fade>
         <Fade delay={250} duration={1500}>
           <GroupButton data={['All projects', 'Web Apps', 'Libraries']} onSelected={filterBy} />
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredProject.map((node, index) => (
               <div
                 key={index}
