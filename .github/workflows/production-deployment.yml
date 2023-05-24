@@ -15,18 +15,18 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.3.0
         with:
-          node-version: '16.x'
+          node-version: '18.x'
 
       - name: Install dependencies
         run: npm install
 
       - name: Generate .env file
         env:
-          GATSBY_GITHUB_TOKEN: ${{ secrets.GATSBY_GITHUB_TOKEN }}
+          PUBLIC_PROJECTS: ${{ secrets.PUBLIC_PROJECTS }}
           API_CONTACT_URL: ${{ secrets.API_CONTACT_URL }}
         run: |
           touch .env.production
-          echo GITHUB_TOKEN="$GATSBY_GITHUB_TOKEN" >> .env.production
+          echo PUBLIC_PROJECTS="$PUBLIC_PROJECTS" >> .env.production
           echo API_CONTACT_URL="$API_CONTACT_URL" >> .env.production
         shell: bash
 

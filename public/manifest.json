@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "loqo71la",
+  "short_name": "loqo71la",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "loqo71la Personal Portfolio"
+}
